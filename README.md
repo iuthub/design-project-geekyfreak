@@ -11,3 +11,7 @@ You have to submit your project into this repository before 06.05.2018.
 - Student ID: U1610170
 - Student Name: Nodirjon Utkirov
 - Section Number: 002
+
+- Student ID: U1610095
+- Student Name: Jasur Turaev
+- Section Number: 003
