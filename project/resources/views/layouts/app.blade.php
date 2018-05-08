@@ -21,6 +21,25 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+
+    <?php
+  $bg = array('01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg','06.jpg', '07.jpg', '08.jpg', '09.jpg' ); // array of filenames
+
+  $i = rand(0, count($bg)-1); // generate random number size of the array
+  $selectedBg = "$bg[$i]"; // set variable equal to which random filename was chosen
+?>
+<style type="text/css">body{
+  background: url("BG/<?php echo $selectedBg; ?>") no-repeat;
+    background-position: center;  
+           background-repeat: no-repeat;     
+               background-size: cover;     
+               width: 100%;
+               height: 100%;  
+                 background-attachment: fixed;
+               position: sticky;
+               }
+</style>
+
     <div id="app">
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark  navbar-laravel">
             <div class="container">
