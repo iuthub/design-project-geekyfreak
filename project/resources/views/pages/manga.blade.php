@@ -1,5 +1,5 @@
 @extends('layouts.app')
              @section('content')
-                    manga
+                   <h1>here will be mangas</h1>
              @endsection
 
