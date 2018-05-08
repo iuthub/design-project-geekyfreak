@@ -18,8 +18,6 @@ Route::get('/manga', 'PagesController@manga');
 Route::get('/movies', 'PagesController@movies'); 
 Route::get('/contacts','PagesController@contacts');
 
-// Route::view('/', 'news');
-// Route::view('/', 'comics');
-// Route::view('/', 'manga');
-// Route::view('/', 'movies');
-// Route::view('/', 'contacts');
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
