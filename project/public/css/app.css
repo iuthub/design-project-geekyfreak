@@ -120,53 +120,32 @@
  																																																					-webkit-box-shadow:0 2px 4px rgba(0,0,0,.04);
  		box-shadow:0 2px 4px rgba(0,0,0,.04)}
 
- html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
 
-            .full-height {
-                height: 100vh;
-            }
+.fa {
+    font-size: 50px;
+    cursor: pointer;
+    user-select: none;
+}
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+.fa:hover {
+  color: darkblue;
+}
 
-            .position-ref {
-                position: relative;
-            }
+.card.carditem
+{
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+	padding: 5px;
+	
+	margin: 10px;
+}
 
-            .content {
-                text-align: center;
-            }
+.itempage img
+{
 
-            .title {
-                font-size: 84px;
-            }
+		width: 100%;
+		height: 100%;
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+}
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
+.itempagination
+{display: block |import;}

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\MangaPost;
-
 class MangasPostController extends Controller
 {
     /**
@@ -14,9 +14,19 @@ class MangasPostController extends Controller
      */
     public function index()
     {
-        $mangasposts = MangaPost::orderBy('title')->paginate(25);        
-        return view('mangasposts.index')->with('mangaposts', $mangasposts);
+         if(!Auth::guest())
+            {
+        $user_id=auth()->user()->id;
 
+        $mangasposts = MangaPost::all();        
+        return view('mangasposts.index')->with(array('user_id'=>$user_id,'mangaposts'=>$mangasposts));
+        }
+        else
+        {
+            $mangasposts = MangaPost::all();        
+        return view('mangasposts.index')->with('mangaposts', $mangasposts);
+        }
+        
     }
 
     /**
@@ -48,10 +58,25 @@ class MangasPostController extends Controller
      */
     public function show($id)
     {
-        $mangas= MangaPost::find($id);
+         $manga= MangaPost::find($id);
+        if(!Auth::guest())
+            {
+        $user_id=auth()->user()->id;
+       
 
-        return view('mangasposts.read')->with('mangas',$mangas); 
+        return view('mangasposts.read')->with(array('user_id'=>$user_id,'manga'=>$manga));
+            }
+            else
+                return view('mangasposts.read')->with('manga',$manga); 
     }
+
+    public function page($id)
+    {
+        $manga= MangaPost::find($id);
+
+        return view('mangasposts.read')->with('manga',$manga); 
+    }
+
 
     /**
      * Show the form for editing the specified resource.

@@ -14,11 +14,18 @@ class ManhwasPostController extends Controller
      */
     public function index()
     {
-             
-        
-            $manhwaspost = ManhwaPost::orderBy('title')->paginate(25);      
+         if(!Auth::guest())
+            {
+        $user_id=auth()->user()->id;
+
+        $manhwaspost = ManhwaPost::all();        
+        return view('manhwasposts.index')->with(array('user_id'=>$user_id,'manhwaposts'=>$manhwaspost));
+        }
+        else
+        {
+            $manhwaspost = ManhwaPost::all();        
         return view('manhwasposts.index')->with('manhwaposts', $manhwaspost);
-        
+        }
     }
 
     /**
@@ -52,11 +59,24 @@ class ManhwasPostController extends Controller
     {
        
         $manhwa= ManhwaPost::find($id);
-      
+        if(!Auth::guest())
+            {
+        $user_id=auth()->user()->id;
+       
+
+        return view('manhwasposts.read')->with(array('user_id'=>$user_id,'manhwa'=>$manhwa));
+            }
+            else
         return view('manhwasposts.read')->with('manhwa',$manhwa);
     }
 
-  
+    public function page($id)
+    {
+       
+        $manhwa= ManhwaPost::find($id);
+
+        return view('manhwasposts.read')->with('manhwa',$manhwa);
+    }
     /**
      * Show the form for editing the specified resource.
      *

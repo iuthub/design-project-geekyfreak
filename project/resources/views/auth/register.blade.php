@@ -1,13 +1,15 @@
-@extends('layouts.app')
-
-@section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+            <div class="modal fade" id="myModal2" role="dialog">
+             <div class="modal-dialog">
+             <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Registration</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+                <div class="modal-body">
 
-                <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -87,4 +89,3 @@
         </div>
     </div>
 </div>
-@endsection

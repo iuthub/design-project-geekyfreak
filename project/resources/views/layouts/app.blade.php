@@ -11,7 +11,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/paginate.js') }}"></script>
+     <script src="{{ asset('js/custom.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -19,34 +23,32 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
 </head>
-<body>
+<body >
 <?php
   $bg = array('01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg','06.jpg', '07.jpg', '08.jpg', '09.jpg' ); // array of filenames
 
   $i = rand(0, count($bg)-1); // generate random number size of the array
   $selectedBg = "$bg[$i]"; // set variable equal to which random filename was chosen
 ?>
-
-<style type="text/css">
-
-    body{
-         background: url("BG/<?php echo $selectedBg; ?>") 
-         no-repeat;
-         background-position: center;
-         background-repeat: no-repeat;
-         background-size: cover;
-         background-attachment: fixed;
-        }
- </style>
-
+<style type="text/css">body{
+  background: url("storage/BG/<?php echo $selectedBg; ?>") no-repeat;
+    background-position: center;  
+           background-repeat: no-repeat;     
+               background-size: cover;     
+               width: 100%;
+               height: 100%;  
+                 background-attachment: fixed;
+               position: sticky;
+               }
+</style>
     <div id="app">
         <nav class="navbar navbar-expand-md bg-dark navbar-dark navbar-Home">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Home
+                    {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -74,15 +76,17 @@
                           </li>
                           <li class="nav-item">
                             <a class="nav-link" href="{{url('contacts')}}">Contacts</a>
-                          </li>                     
+                          </li>                    
                           </ul>
               <div class="spinner small absolute auto"></div>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                            <li><a class="nav-link" data-toggle="modal" data-target="#myModal1">{{ __('Login') }}</a></li>
+                            <li><a class="nav-link" data-toggle="modal" data-target="#myModal2">{{ __('Register') }}</a></li>
+                            @include('auth.login')
+                            @include('auth.register')
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -90,6 +94,7 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{route('home')}}">Favourites</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -108,10 +113,17 @@
         </nav>
 
         
-            <div class="jumbotron">
+            
+      <div class="container">
                 @yield('content')
-            </div>
-        
+            </div>  
     </div>
+
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+            <script>
+                ckInstance.removeAllListeners();
+                CKEDITOR.remove(ckInstance);
+                CKEDITOR.replace('article-ckeditor');
+            </script>
 </body>
 </html>

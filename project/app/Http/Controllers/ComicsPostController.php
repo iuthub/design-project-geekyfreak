@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\ComicPost;
 
@@ -14,9 +14,18 @@ class ComicsPostController extends Controller
      */
     public function index()
     {
-        $comicsposts = ComicPost::orderBy('title')->paginate(25);        
-        return view('comicsposts.index')->with('comicposts', $comicsposts);
+        if(!Auth::guest())
+            {
+        $user_id=auth()->user()->id;
 
+        $comicsposts = ComicPost::all();        
+        return view('comicsposts.index')->with(array('user_id'=>$user_id,'comicposts'=>$comicsposts));
+        }
+        else
+        {
+            $comicsposts = ComicPost::all();
+        return view('comicsposts.index')->with(array('comicposts'=>$comicsposts));
+        }
     }
 
     /**
@@ -47,6 +56,19 @@ class ComicsPostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+    {
+        $comics= ComicPost::find($id);
+
+          if(!Auth::guest())
+            {
+        $user_id=auth()->user()->id;
+      return view('comicsposts.read')->with(array('user_id'=>$user_id,'comics'=>$comics)); 
+            }
+      else 
+        return view('comicsposts.read')->with('comics',$comics); 
+    }
+
+    public function page($id)
     {
         $comics= ComicPost::find($id);
 

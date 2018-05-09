@@ -1,13 +1,15 @@
-@extends('layouts.app')
 
-@section('content')
-<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
+            <div class="modal fade" id="myModal1" role="dialog">
+             <div class="modal-dialog">
+             <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Login</h4>
+             <button type="button" class="close" data-dismiss="modal">&times;</button>
+             
+            </div>
+                <div class="modal-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -54,10 +56,15 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
+                                <button class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#myModal2">
+                                     {{ __('Register') }}
+                                </button>
+                            </div>
+                            <div class="col-md-8 offset-md-4">          
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
+                            </div>
                             </div>
                         </div>
                     </form>
@@ -65,5 +72,4 @@
             </div>
         </div>
     </div>
-</div>
-@endsection
+
