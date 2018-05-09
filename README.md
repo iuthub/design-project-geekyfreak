@@ -19,3 +19,7 @@ You have to submit your project into this repository before 06.05.2018.
 - Student ID: U1610195
 - Student Name: Saidazimxon Jasurbekov
 - Section Number: 003
+#
+- Student ID: U1610076
+- Student Name: Ibrohim Orifjonov
+- Section Number: 003
