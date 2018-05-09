@@ -33,7 +33,7 @@
 <style type="text/css">
 
     body{
-         background: url("storage/<?php echo $selectedBg; ?>") 
+         background: url("BG/<?php echo $selectedBg; ?>") 
          no-repeat;
          background-position: center;
          background-repeat: no-repeat;
@@ -64,17 +64,17 @@
                             <a class="nav-link" href="{{url('news')}}">News</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="{{url('movies')}}">Anime</a>
+                            <a class="nav-link" href="{{url('ManhwaPost')}}">Manhwa</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="{{url('manga')}}">Manga</a>
+                            <a class="nav-link" href="{{url('MangaPost')}}">Mangas</a>
                           </li>
                           <li class="nav-item">
                             <a class="nav-link" href="{{url('ComicPost')}}">Comics</a>
                           </li>
                           <li class="nav-item">
                             <a class="nav-link" href="{{url('contacts')}}">Contacts</a>
-                          </li>                    
+                          </li>                     
                           </ul>
               <div class="spinner small absolute auto"></div>
                     <!-- Right Side Of Navbar -->

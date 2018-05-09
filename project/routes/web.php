@@ -21,6 +21,14 @@ Route::get('/contacts','PagesController@contacts');
 Route::resource('ComicPost','ComicsPostController');
 Route::get('/ComicPost/{id}','ComicsPostController@page');
 
+Route::resource('MangaPost','MangasPostController');
+Route::get('/MangaPost/{id}','MangasPostController@page');
+
+
+Route::resource('ManhwaPost','ManhwasPostController');
+Route::get('/ManhwaPost/{id}','ManhwasPostController@page');
+
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
