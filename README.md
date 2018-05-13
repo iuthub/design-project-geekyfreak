@@ -4,9 +4,9 @@ Find `ip_design_project.pdf` file in this folder, and refer to all the instructi
 
 You have to submit your project into this repository before 06.05.2018.
 
-## Team Members:
+## Team Name: GeekyFreak
 
-## Student Details
+## Team Members:
 
 - Student ID: U1610170
 - Student Name: Nodirjon Utkirov
@@ -27,3 +27,7 @@ You have to submit your project into this repository before 06.05.2018.
 - Student ID: U1610069
 - Student Name: Farrukh Tulkunov
 - Section Number: 003
+
+
+## Web Site Link: 'https://geekyfreak.000webhostapp.com/'
+## Report Link: 'https://github.com/iuthub/design-project-geekyfreak/blob/master/Report.pdf'
